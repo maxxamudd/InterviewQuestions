@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Staircase
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // In this exercise, you are tasked with creating
+            // a staircase of octothorpes based on user inputting
+            // an integer. The bottom of the staircase must not
+            // contain a space.
+
+            // variables
+            string input;
+            int spaces = 0;
+            string octothorpes = "#";
+
+            // input and parse to integer
+            Console.Write("Enter an integer: ");
+            input = Console.ReadLine();
+            int.TryParse(input, out spaces);
+
+            // input validation
+            if(!int.TryParse(input, out spaces))
+            {
+                Console.WriteLine("You did not enter a number.");
+            }
+            // if input is valid, begin printing staircase
+            else
+            {
+                // assign entered integer to number variable
+                int number = spaces;
+
+                // loop through number of steps to print
+                for(int i = 0; i < number; ++i)
+                {
+                    // loop to print spaces
+                    for (int j = 0; j < spaces - 1; ++j)
+                    {
+                        Console.Write(" ");
+                    }
+
+                    // print octothorpe string
+                    Console.WriteLine(octothorpes);
+
+                    // add octothorpe to string and decerement spaces
+                    octothorpes += "#";
+                    --spaces;
+                }
+            }
+        }
+    }
+}

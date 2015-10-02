@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class LengthOfLastWord
+    {
+        static void Main(string[] args)
+        {
+            // variables
+            string str;
+            int count = 0;
+
+            // get string
+            Console.Write("Enter a string: ");
+            str = Console.ReadLine();
+
+            // if nothing was entered, display message
+            if(str == null || str.Length == 0)
+            {
+                Console.WriteLine("Nothing was entered.");
+            }
+            else
+            {
+                // loop from the end of the string, counting backwards
+                for(int i = str.Length - 1; i >= 0; --i)
+                {
+                    char letter = str[i];
+                    
+                    // if the current position in the string is a letter, increment counter
+                    if((letter >= 'a' && letter <= 'z') || (letter >= 'A' && letter <= 'Z'))
+                    {
+                        ++count;
+                    }
+                    else
+                    {
+                        // exit loop if the current position in the string is not a letter
+                        break;
+                    }
+                }
+
+                // show length of last word
+                Console.WriteLine("The length of the last word is " + count + ".");
+            }
+        }
+    }
+}

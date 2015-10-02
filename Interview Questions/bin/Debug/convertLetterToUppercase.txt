@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class ConvertLetterToUppercase
+    {
+        static void Main(string[] args)
+        {
+            // In this exercise, you have to convert a
+            // letter to its uppercase version without
+            // using the ToLower() method.
+
+            // get letter
+            Console.Write("Enter a lowercase letter: ");
+            string input = Console.ReadLine();
+
+            // convert letter to char
+            char letter = Convert.ToChar(input);
+
+            // cast char to int to get its decimal value
+            int decLetter = (int)letter;
+
+            // if entered letter is within the decimal
+            // value range of the alphabet, subtract 32 from it
+            if (decLetter >= 97 && decLetter <= 122)
+            {
+                decLetter -= 32;
+
+                // cast the decimal value back to a char
+                letter = (char)decLetter;
+
+                Console.WriteLine("The uppcase version of input is " + letter);
+            }
+            // if input was not a lowercase letter, display message
+            else
+            {
+                Console.WriteLine("You didn't enter a letter between a and z.");
+            }
+        }
+    }
+}

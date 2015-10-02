@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class ReverseString
+    {
+        static void Main(string[] args)
+        {
+            // string to reverse
+            string str = "Reverse this.";
+
+            Console.WriteLine("String to reverse: " + str);
+
+            // convert string to a char array, then reverse it
+            char[] charArray = str.ToCharArray();
+            Array.Reverse(charArray);
+
+            // convert char array to string
+            string reverseStr = new string(charArray);
+
+            Console.WriteLine("Reversed string: " + reverseStr);
+        }
+    }
+}

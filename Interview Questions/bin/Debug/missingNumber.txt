@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class MissingNumber
+    {
+        static void Main(string[] args)
+        {
+            // In this exercise, you are given an
+            // array of integers between 1 and
+            // 100,000 and one number is missing.
+            // You are given the task to find the
+            // missing number. For demonstation
+            // purposes, I will use an array of
+            // integers 1 through 20.
+
+            int[] array = {20, 2, 15, 12, 7, 6, 5, 19,
+                          16, 14, 4, 13, 10, 3, 9,
+                          18, 17, 8, 1};
+
+            // sort the array
+            Array.Sort(array);
+
+            // iterate through the array checking
+            // if the previous element is less than
+            // the current element number by 1
+            for (int i = 0; i < array.Length; ++i)
+            {
+                int tempNum = array[i] - 1;
+                if (i != 0)
+                {
+                    if (array[i - 1] != tempNum)
+                    {
+                        Console.WriteLine("The missing number is " + (tempNum));
+                    }
+                }
+            }
+
+        }
+    }
+}

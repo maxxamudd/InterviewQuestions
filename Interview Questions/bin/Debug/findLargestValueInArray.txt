@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class FindLargestValueInArray
+    {
+        static void Main(string[] args)
+        {
+            // create array
+            int[] array = { 1, 4, 2, 6, 10, 9, 17, 3 };
+
+            // set the max to the first value in the array
+            // to begin comparisons
+            int max = array[0];
+
+            // loop through array
+            for(int i = 0; i < array.Length; ++i)
+            {
+                // compare max to the current element in the
+                // array and if the current element is larger,
+                // assign it to the max variable
+                if(max <= array[i])
+                {
+                    max = array[i];
+                }
+            }
+
+            // display largest number in the array
+            Console.WriteLine("The largest integer in the array is " + max);
+        }
+    }
+}

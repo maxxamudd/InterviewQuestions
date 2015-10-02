@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class CheckIfPrime
+    {
+        static void Main(string[] args)
+        {
+            int number;
+            bool isPrime;
+
+            // get number
+            Console.Write("Enter a whole number: ");
+            string input = Console.ReadLine();
+        
+            // convert input to integer
+            int.TryParse(input, out number);
+            if(int.TryParse(input, out number))
+            {
+                // check if prime
+                isPrime = checkPrime(number);
+
+                // display is number is prime or not
+                if(isPrime == true)
+                {
+                    Console.WriteLine(number + " is a prime number.");
+                }
+                else
+                {
+                    Console.WriteLine(number + " is not a prime number.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("You did not enter a whole number.");
+            }
+            
+        }
+        public static bool checkPrime(int number)
+        {
+            if(number == 1)
+            {
+                return false;
+            }
+            else if(number == 2)
+            {
+                return true;
+            }
+            else if(number % 2 == 0)
+            {
+                return false;
+            }
+            else
+            {
+                // if number is not 1, 2, or even,
+                // attempt to divide number by every
+                // non-even number before it
+                for(int i = 3; i < number; i += 2)
+                {
+                    if(number % i == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
+            // if none of the statements trigger
+            return true;
+        }
+    }
+}

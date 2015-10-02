@@ -1,0 +1,95 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class WolfGoatSaladPuzzle
+    {
+        static void Main(string[] args)
+        {
+            // In this exercise, there's a farmer with a wolf, a goat, and a 
+            // salad. The farmer has to get all three of them from the west 
+            // side of the river to the east side. He can only fit himself 
+            // and one other passenger in the boat to cross the river.
+            // If the wolf is alone with the goat, the wolf will eat the 
+            // goat. If the goat alone with the salad, the goat will eat 
+            // the salad. Here is one way to solve this:
+            // 1. Move to goat to the east bank.
+            // 2. Return to the west bank.
+            // 3. Move the salad to the east bank.
+            // 4. Bring the goat back to the west bank.
+            // 5. Move the wolf to the east bank.
+            // 6. Return to the west bank.
+            // 7. Move the goat to the east bank.
+
+            // create objects
+            Thing wolf = new Thing("wolf");
+            Thing goat = new Thing("goat");
+            Thing salad = new Thing("salad");
+
+            // create array for both sides of the river
+            List<Thing> westSide = new List<Thing>();
+            List<Thing> eastSide = new List<Thing>();
+
+            // populate west side of river
+            westSide.Add(wolf);
+            westSide.Add(goat);
+            westSide.Add(salad);
+
+            // first move the goat to the east side of the river
+            moveEastSide(ref eastSide, ref westSide, goat);
+            
+            // loop until the wolf, the goat, and the salad are on the east bank
+            while (eastSide.Count != 3)
+            {
+                if (eastSide.Contains(goat) && westSide.Contains(salad) && westSide.Contains(wolf))
+                {
+                    // move the salad to the east side of the river
+                    Console.WriteLine("The farmer has returned to the west side of the river.");
+                    moveEastSide(ref eastSide, ref westSide, salad);
+                }
+                else if (eastSide.Contains(goat) && eastSide.Contains(salad) && westSide.Contains(wolf))
+                {
+                    // move the goat to the west side of the river
+                    moveWestSide(ref westSide, ref eastSide, goat);
+                }
+                else if (westSide.Contains(wolf) && westSide.Contains(goat) && eastSide.Contains(salad))
+                {
+                    // move the wolf to the east side of the river
+                    moveEastSide(ref eastSide, ref westSide, wolf);
+                }
+                else
+                {
+                    // return to the west side of the river and move the goat to the east side
+                    Console.WriteLine("The farmer has returned to the west side of the river.");
+                    moveEastSide(ref eastSide, ref westSide, goat);
+                }
+            }
+        }
+        public static void moveEastSide(ref List<Thing> eastSide, ref List<Thing> westSide, Thing thing)
+        {
+            // move thing from the west bank to the east bank
+            eastSide.Add(thing);
+            westSide.Remove(thing);
+            Console.WriteLine("The farmer moved the " + thing.Name + " to the east side of the river.");
+        }
+        public static void moveWestSide(ref List<Thing> westSide, ref List<Thing> eastSide, Thing thing)
+        {
+            // move thing from the east bank to the west bank
+            westSide.Add(thing);
+            eastSide.Remove(thing);
+            Console.WriteLine("The farmer moved the " + thing.Name + " to the west side of the river.");
+        }
+        public class Thing
+        {
+            public String Name { get; set; }
+            public Thing(string name)
+            {
+                Name = name;
+            }
+        }
+    }
+}

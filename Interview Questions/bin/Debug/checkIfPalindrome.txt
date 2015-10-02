@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class CheckIfPalindrome
+    {
+        static void Main(string[] args)
+        {
+            string firstStr = "Hannah";
+            string secondStr = "Banana";
+            bool isPalindrome = false;
+
+            isPalindrome = checkPalindrome(firstStr);
+            displayIfPalindrome(firstStr, isPalindrome);
+
+            isPalindrome = checkPalindrome(secondStr);
+            displayIfPalindrome(secondStr, isPalindrome);
+        }
+        public static bool checkPalindrome(string str)
+        {
+            bool isPalindrome = false;
+            int start = 0;
+            int end = str.Length - 1;
+
+            while(true)
+            {
+                // if start is greater than end, then the loop has
+                // gone through each letter in the string without
+                // triggering the false statement so return true
+                if (start > end)
+                {
+                    return true;
+                }
+
+                // assign two chars positions in the string
+                char pos1 = str[start];
+                char pos2 = str[end];
+
+                // compare two chars and if they dont match,
+                // return false
+                if(char.ToLower(pos1) != char.ToLower(pos2))
+                {
+                    return false;
+                }
+
+                // increment and decrement positions
+                ++start;
+                --end;
+
+            }
+        }
+        public static void displayIfPalindrome(string str, bool isPalindrome)
+        {
+            if (isPalindrome == false)
+            {
+                Console.WriteLine(str + " is not a palindrome");
+            }
+            else
+            {
+                Console.WriteLine(str + " is a palindrome.");
+            }
+        }
+    }
+}

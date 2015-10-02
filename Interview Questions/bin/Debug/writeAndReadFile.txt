@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace ConsoleApplication1
+{
+    class WriteAndReadFile
+    {
+        static void Main(string[] args)
+        {
+            // create string to write to file
+            string text = "This file contains text.";
+
+            // create new file
+            FileStream newFile = new FileStream("newFile.txt", FileMode.Create, FileAccess.Write);
+
+            // create writer object
+            StreamWriter writer = new StreamWriter(newFile);
+
+            // write to file
+            writer.WriteLine(text);
+
+            // display what was written to file
+            Console.WriteLine("Written to file: " + text);
+
+            // close writer and file
+            writer.Close();
+            newFile.Close();
+
+            // open file
+            FileStream readFile = new FileStream("newFile.txt", FileMode.Open, FileAccess.Read);
+
+            // create reader object
+            StreamReader reader = new StreamReader(readFile);
+
+            // read from file and print to console
+            Console.WriteLine("Reading from file: " + reader.ReadLine());
+
+            // close reader and file
+            reader.Close();
+            readFile.Close();
+        }
+    }
+}
