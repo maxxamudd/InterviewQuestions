@@ -12,6 +12,28 @@ namespace Interview_Questions
     {
         static void Main(string[] args)
         {
+            // create and populate questions list
+            List<Question> qList = new List<Question>();
+            qList = createList();
+
+            // choice variable
+            int choice;
+
+            // greet user
+            greet();
+
+            // loop while user wants to view questions
+            while (true)
+            {
+                displayMenu(qList);
+
+                choice = getChoice();
+
+                openFile(choice, qList);
+            }  
+        }
+        public static List<Question> createList()
+        {
             // create question objects
             Question question1 = new Question("reverseString.txt", 1, "1. Reverse a string");
             Question question2 = new Question("fizzBuzz.txt", 2, "2. Fizz Buzz");
@@ -27,7 +49,8 @@ namespace Interview_Questions
             Question question12 = new Question("wolfGoatSalad.txt", 12, "12. Wolf, goat, and salad puzzle");
             Question question13 = new Question("lengthOfLastWord.txt", 13, "13. Length of last word in a string");
             Question question14 = new Question("staircase.txt", 14, "14. Print a staircase");
-            
+            Question question15 = new Question("astronautPairings.txt", 15, "15. Astronaut birthdays");
+
             // create and populate list of questions
             List<Question> qList = new List<Question>();
             qList.Add(question1);
@@ -44,19 +67,9 @@ namespace Interview_Questions
             qList.Add(question12);
             qList.Add(question13);
             qList.Add(question14);
+            qList.Add(question15);
 
-            int choice;
-
-            greet();
-
-            while (true)
-            {
-                displayMenu(qList);
-
-                choice = getChoice();
-
-                openFile(choice, qList);
-            }  
+            return qList;
         }
         public static void greet()
         {
@@ -91,7 +104,7 @@ namespace Interview_Questions
 
             // input validation
             int.TryParse(input, out choice);
-            if (!int.TryParse(input, out choice) || choice > 14 || choice < 1)
+            if (!int.TryParse(input, out choice) || choice > 15 || choice < 1)
             {
                 choice = -1;
                 while (choice == -1)
@@ -109,7 +122,7 @@ namespace Interview_Questions
 
                     // input validation
                     int.TryParse(input, out choice);
-                    if (!int.TryParse(input, out choice) || choice > 14 || choice < 1)
+                    if (!int.TryParse(input, out choice) || choice > 15 || choice < 1)
                     {
                         choice = -1;
                     }

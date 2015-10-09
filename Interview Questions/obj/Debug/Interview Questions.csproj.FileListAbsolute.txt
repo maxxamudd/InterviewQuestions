@@ -4,3 +4,9 @@ D:\Programming\C#\Interview Questions\Interview Questions\bin\Debug\Interview Qu
 D:\Programming\C#\Interview Questions\Interview Questions\obj\Debug\Interview Questions.exe
 D:\Programming\C#\Interview Questions\Interview Questions\obj\Debug\Interview Questions.pdb
 D:\Programming\C#\Interview Questions\Interview Questions\obj\Debug\Interview Questions.csprojResolveAssemblyReference.cache
+D:\Programming\C#\Interview Questions\InterviewQuestions\Interview Questions\bin\Debug\Interview Questions.exe.config
+D:\Programming\C#\Interview Questions\InterviewQuestions\Interview Questions\obj\Debug\Interview Questions.exe
+D:\Programming\C#\Interview Questions\InterviewQuestions\Interview Questions\obj\Debug\Interview Questions.pdb
+D:\Programming\C#\Interview Questions\InterviewQuestions\Interview Questions\bin\Debug\Interview Questions.exe
+D:\Programming\C#\Interview Questions\InterviewQuestions\Interview Questions\bin\Debug\Interview Questions.pdb
+D:\Programming\C#\Interview Questions\InterviewQuestions\Interview Questions\obj\Debug\Interview Questions.csprojResolveAssemblyReference.cache

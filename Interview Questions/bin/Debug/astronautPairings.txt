@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AstronautPairings
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            // This is a question that was taken from HackerRank
+            // that involves astronauts going to Mars. Astronauts are
+            // paired, one male with one female, based on their birthdays.
+            // If a male pairs with a female in the list, any other females 
+            // with the same birthday are excluded from the trip to Mars. 
+            // You are tasked with writing a method that will create a new array
+            // containing the birthdates of the astronauts who are paired,
+            // then sort the array into descending order.
+
+            // list of birthdays for males and females
+            int[] males= new int [6] { 2500, 1500, 7000, 3000, 6000, 2000 };
+            int[] females = new int [6] { 1000, 7000, 1500, 8000, 1500, 9000 };
+
+            // create array of paired astronauts
+            int[] pairings;
+            pairings = pairAstronauts(males, females);
+
+            // display paired astronauts
+            Console.WriteLine("The following astronauts have been paired: ");
+            for(int i = 0; i < pairings.Length; ++i)
+            {
+                Console.WriteLine(pairings[i]);
+            }
+
+        }
+        public static int[] pairAstronauts(int[] m, int[] f)
+        {
+            // create a list since we are not sure how
+            // many pairs there will be
+            List<int> arrayList = new List<int>();
+
+            // loop through each male
+            for(int i = 0; i < m.Length; ++i)
+            {
+                // check if the female array contains
+                // the current male's birthday
+                if(f.Contains(m[i]))
+                {
+                    // if there is a match, add it to the list
+                    arrayList.Add(m[i]);
+
+                    // to prevent duplicate matches, make the
+                    // current male's birthday set to a negative
+                    // number (could also use zero)
+                    m[i] = -1;
+                }
+            }
+
+            // convert the list into an array
+            int[] array = arrayList.ToArray();
+
+            // sort and reverse the array
+            Array.Sort(array);
+            Array.Reverse(array);
+
+            return array;
+        }
+    }
+}
